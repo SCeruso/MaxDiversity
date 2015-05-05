@@ -1,10 +1,10 @@
-#Algoritmos para la resolucion del problema de las k-medias
+#Algoritmos para la resolucion del problema de la maxima diversidad
 Implementa los algoritmos:
 
 * Greedy.
 * GRASP.
 * GRASP con post-procesamiento.
 * Multiarranque.
-* Búsqueda por entornos variable (VNS).
+* Ramificacion y acotacion.
 
-Para ejecutarlos, ejecute el MaxKMeans.jar "NombreDeFicheroProblema" para resolver el problema del fichero.
+Para ejecutarlos, ejecute el MaxDiversity.jar "NombreDeFicheroProblema" para resolver el problema del fichero.
