@@ -25,3 +25,14 @@ public class Main {
 		System.out.println(grasp.getBestSolution());
 	}
 }
+
+
+
+
+/**
+* Probar el enviroment.
+* Testear el LocalSearch
+*
+*
+*
+*/
