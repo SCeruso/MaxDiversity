@@ -20,8 +20,9 @@ import structure.problemsolvingmethods.daa.Solution;
  *
  */
 public class MaxDiversityProblem extends Problem {
-	private ArrayList<ArrayList<Integer>> distances;			// Grafo de distancias.
-	
+	private ArrayList<ArrayList<Double>> distances;				// Grafo de distancias.
+	private ArrayList<Node> nodes;								// Lista de nodos.
+	private int targetSize;
 	private int Nnodes;
 	
 	/**
@@ -32,8 +33,8 @@ public class MaxDiversityProblem extends Problem {
 	 */
 	public MaxDiversityProblem(boolean max, String filename) throws FileNotFoundException {
 		super(max);
-		setDistances(new ArrayList<ArrayList<Integer>>());
-		
+		setDistances(new ArrayList<ArrayList<Double>>());
+		setNodes(new ArrayList<Node>());
 		try {
 			read(filename);
 		} catch (FileNotFoundException e) {
@@ -43,6 +44,10 @@ public class MaxDiversityProblem extends Problem {
 		}
 	}
 
+	public MaxDiversityProblem(boolean max, String filename, int m) throws FileNotFoundException {
+		this(max, filename);
+		setTargetSize(m);
+	}
 	@Override
 	public void evaluate(Solution solution) {
 		MaxDiversitySolution sol = (MaxDiversitySolution) solution;
@@ -55,15 +60,23 @@ public class MaxDiversityProblem extends Problem {
 			}
 		}
 
-		sol.setScore(totalAffinity / (double) solutionNodes.length);
+		sol.setScore(totalAffinity);
 	}
 
-	public ArrayList<ArrayList<Integer>> getDistances() {
+	public ArrayList<ArrayList<Double>> getDistances() {
 		return distances;
 	}
 
-	public void setDistances(ArrayList<ArrayList<Integer>> costs) {
+	public void setDistances(ArrayList<ArrayList<Double>> costs) {
 		this.distances = costs;
+	}
+
+	public ArrayList<Node> getNodes() {
+		return nodes;
+	}
+
+	public void setNodes(ArrayList<Node> nodes) {
+		this.nodes = nodes;
 	}
 
 	/**
@@ -73,7 +86,7 @@ public class MaxDiversityProblem extends Problem {
 	 * @param q
 	 * @return
 	 */
-	public Integer getDistance(int p, int q) {
+	public Double getDistance(int p, int q) {
 		int min = Math.min(p, q);
 		int max = Math.max(p, q);
 
@@ -93,7 +106,8 @@ public class MaxDiversityProblem extends Problem {
 	public void read(String filename) throws FileNotFoundException {
 		Scanner scanner = null;
 		Integer nNodes = -1;
-		int j;
+		Double[] coord = null;
+		String aux = null;
 		int node;
 		try {
 			scanner = new Scanner(new File(filename));
@@ -103,23 +117,30 @@ public class MaxDiversityProblem extends Problem {
 		}
 		nNodes = new Integer(scanner.nextLine());
 		setNnodes(nNodes);
-		j = nNodes - 1;
-
+		Node.setDimension(Integer.parseInt(scanner.nextLine()));
+		coord = new Double[Node.getDimension()];
+		
 		try {
-			while (scanner.hasNext()) {
-				node = getDistances().size();
-				getDistances().add(new ArrayList<Integer>());
-				for (int i = 0; i < j; i++) {
-					getDistances().get(node).add(
-							new Integer(scanner.nextLine()));
-				}
-				j--;
+			for (int i = 0; i < nNodes; i++) {
+				aux = scanner.nextLine();
+				for (int j = 0; j < Node.getDimension(); j++) 				
+					coord[j] = Double.parseDouble(aux.split("\\t")[j].trim().replace(",", "."));
+				
+				getNodes().add(new Node(coord));
+				
 			}
 		} catch (Exception e) {
 			System.err.println("Fichero mal escrito");
 			throw new RuntimeException();
 		} finally {
 			scanner.close();
+		}
+		
+		for (int i = 0; i < getNnodes(); i++) {
+			node = getDistances().size();
+			getDistances().add(new ArrayList<Double>());
+			for (int j = node + 1; j < getNnodes(); j++) 
+				getDistances().get(node).add(Node.distance(getNodes().get(node), getNodes().get(j)));			
 		}
 	}
 
@@ -131,4 +152,12 @@ public class MaxDiversityProblem extends Problem {
 		Nnodes = nnodes;
 	}
 
+	public int getTargetSize() {
+		return targetSize;
+	}
+
+	public void setTargetSize(int targetSize) {
+		this.targetSize = targetSize;
+	}
+	
 }

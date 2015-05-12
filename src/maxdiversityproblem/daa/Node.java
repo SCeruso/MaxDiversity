@@ -7,16 +7,19 @@ package maxdiversityproblem.daa;
  * Universiad de La Laguna, Santa Cruz de Tenerife, España.
  */
 public class Node {
-	private Integer dimension;
+	private static Integer dimension;
 	private Double coordinates[];
 	
-	public Node (Integer dimension, Double coordinates[]) {
-		setDimension(dimension);
-		setCoordinates(new Double[dimension]);
+	public Node (Double coordinates[]) {
+		setCoordinates(new Double[coordinates.length]);
 		
 		for (int i = 0; i < coordinates.length; i++) {
 			getCoordinates()[i] = coordinates[i];
 		}
+	}
+	public Node (Integer dimension, Double coordinates[]) {
+		this(coordinates);
+		setDimension(dimension);
 	}
 	/**
 	 * Distancia entre dos nodos.
@@ -27,8 +30,8 @@ public class Node {
 	public static Double distance (Node node1, Node node2) {
 		Double result = 0.0;
 		
-		for (int i = 0; i < node1.getDimension(); i++) 
-			result += Math.pow(node1.getCoordinates()[i] - node1.getCoordinates()[i], 2);
+		for (int i = 0; i < Node.getDimension(); i++) 
+			result += Math.pow(node1.getCoordinates()[i] - node2.getCoordinates()[i], 2);
 		
 		return Math.sqrt(result);
 	}
@@ -36,12 +39,12 @@ public class Node {
 	 * Getters y Setters
 	 * 
 	 */
-	public Integer getDimension() {
+	public static Integer getDimension() {
 		return dimension;
 	}
 
-	public void setDimension(Integer dimension) {
-		this.dimension = dimension;
+	public static void setDimension(Integer dimension) {
+		Node.dimension = dimension;
 	}
 
 	public Double[] getCoordinates() {

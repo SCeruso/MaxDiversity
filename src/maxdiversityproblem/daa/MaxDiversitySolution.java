@@ -17,22 +17,26 @@ import structure.problemsolvingmethods.daa.Solution;
 public class MaxDiversitySolution extends Solution{
 	private BitSet solutionSet;					// Conjunto para representar la solucion.
 	private int size;							// Numero total de nodos.
-	
+	private int targetSize; 					// Numero de nodos con los que se quiere formar la solucion.
 	/**
 	 * 
 	 * @param set Conjunto solucion
 	 * @param n Numero total de nodos.
+	 * @param m Numero de nodos con los que formar la solucion.
 	 */
-	public MaxDiversitySolution(BitSet set, int n) {
+	public MaxDiversitySolution(BitSet set, int n, int m) {
 		setSolutionSet(set);
+		setTargetSize(m);
 		setSize(n);
 	}
 	/**
 	 * 
 	 * @param n Numero total de nodos.
+	 * @param m Numero de nodos con los que formar la solucion.
 	 */
-	public MaxDiversitySolution(int n) {
+	public MaxDiversitySolution(int n, int m) {
 		setSize(n);
+		setTargetSize(m);
 		setSolutionSet(new BitSet());
 	}
 
@@ -80,7 +84,7 @@ public class MaxDiversitySolution extends Solution{
 	 */
 	public MaxDiversitySolution clone() {
 		BitSet aux = (BitSet)getSolutionSet().clone();
-		return new MaxDiversitySolution(aux, getSize());
+		return new MaxDiversitySolution(aux, getSize(), getTargetSize());
 	}
 	public boolean containsElement(int n) {
 		return getSolutionSet().get(n);
@@ -119,7 +123,13 @@ public class MaxDiversitySolution extends Solution{
 	public void setSize(int size) {
 		this.size = size;
 	}
-
+	
+	public int getTargetSize() {
+		return targetSize;
+	}
+	public void setTargetSize(int targetSize) {
+		this.targetSize = targetSize;
+	}
 	public String toString() {
 		return getSolutionSet().toString() + ", " + getScore();
 	}
