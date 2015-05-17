@@ -42,6 +42,10 @@ public class LocalSearch extends SolutionMethod{
 		}
 		setIteration(iteration);
 	}
+	/**
+	 * Getters y Setters.
+	 * @return
+	 */
 	public MaxDiversitySolution getActualSolution() {
 		return actualSolution;
 	}

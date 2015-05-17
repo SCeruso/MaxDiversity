@@ -14,15 +14,17 @@ public class Main {
 		}
 		problem.setTargetSize(4);
 		grasp = new ReverseConstructiveGRASP(problem, 1);
-		
-		grasp.runSearch();
+		BranchAndBound branch = new BranchAndBound(problem, grasp, new DFSBranching());
+		branch.runSearch();
+		System.out.println(branch.getBestSolution());
+		/*grasp.runSearch();
 		
 		System.out.println(grasp.getBestSolution());
 	
 		grasp = new DirectConstructiveGRASP(problem, 1);
 		grasp.runSearch();
 		
-		System.out.println(grasp.getBestSolution());
+		System.out.println(grasp.getBestSolution());*/
 	}
 }
 

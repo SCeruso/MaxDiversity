@@ -1,6 +1,5 @@
 package maxdiversityproblem.daa;
 
-
 /**
  * 
  * @author Sabato Ceruso

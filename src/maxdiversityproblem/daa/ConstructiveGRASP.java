@@ -16,7 +16,7 @@ import structure.problemsolvingmethods.daa.SolutionMethod;
  * @author sabato
  *
  */
-public abstract class ConstructiveGRASP extends SolutionMethod {
+public abstract class ConstructiveGRASP extends SolutionMethod implements LowerBoundingStrategy{
 	private ArrayList<MaxDiversitySolution> lrc;
 	private Integer lrcSize;
 	private MaxDiversitySolution actualSolution;
@@ -100,6 +100,10 @@ public abstract class ConstructiveGRASP extends SolutionMethod {
 			getLrc().remove(0);
 		
 		return getLrc().contains(sol);
+	}
+	public MaxDiversitySolution generateBound() {
+		runSearch();
+		return (MaxDiversitySolution)getBestSolution();
 	}
 	/**
 	 * Realiza la lista restringida de candidatos.

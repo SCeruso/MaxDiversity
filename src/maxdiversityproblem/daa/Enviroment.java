@@ -89,6 +89,10 @@ public class Enviroment {
 			return true;
 		return false;
 	}
+	/**
+	 * Getters y Setters.
+	 * @return
+	 */
 	protected MaxDiversitySolution getSolution() {
 		return solution;
 	}
