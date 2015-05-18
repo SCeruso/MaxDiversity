@@ -48,9 +48,9 @@ public class Enviroment {
 		MaxDiversitySolution sol = getSolution().clone();
 		
 		getAdditionMove().makeMove(sol, toAdd[getAddedIndex()]);
-		getRemovalMove().makeMove(sol, getRemovedIndex());
+		getRemovalMove().makeMove(sol, toRemove[getRemovedIndex()]);
 		
-		if (getRemovedIndex() > toRemove.length) {
+		if (getRemovedIndex() == toRemove.length - 1) {
 			setRemovedIndex(0);
 			setAddedIndex(getAddedIndex() + 1);
 		}
@@ -58,7 +58,7 @@ public class Enviroment {
 			setRemovedIndex(getRemovedIndex() + 1); 
 			
 	
-		return null;
+		return sol;
 	}
 	/**
 	 * Genera una solucion aleatoria del entorno.
@@ -83,9 +83,9 @@ public class Enviroment {
 	 * @return True si hay mas soluciones por explorar.
 	 */
 	public boolean hasMoreSolutions() {
-		if (getAddedIndex() < getSolution().getNonSolutionIndexesArray().length)
+		if (getAddedIndex() < getSolution().getNonSolutionIndexesArray().length - 1)
 				return true;
-		else if (getRemovedIndex() < getSolution().getSolutionIndexesArray().length)
+		else if (getRemovedIndex() < getSolution().getSolutionIndexesArray().length - 1)
 			return true;
 		return false;
 	}

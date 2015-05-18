@@ -12,7 +12,7 @@ public class DFSBranching implements BranchingStrategy{
 
 	@Override
 	public TreeNode nodeToBranch(ArrayList<TreeNode> tree) {
-		
+		//return tree.get(0);
 		return tree.get(tree.size() - 1);
 	}
 

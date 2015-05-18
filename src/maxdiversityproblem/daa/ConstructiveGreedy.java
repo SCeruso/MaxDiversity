@@ -12,7 +12,7 @@ import structure.problemsolvingmethods.daa.SolutionMethod;
  * @author sabato
  *
  */
-public class ConstructiveGreedy extends SolutionMethod{
+public class ConstructiveGreedy extends SolutionMethod implements LowerBoundingStrategy{
 	private ConstructiveGRASP solutionMethod;
 	public static final int DIRECT = 0;
 	public static final int REVERSE = 1;
@@ -43,6 +43,12 @@ public class ConstructiveGreedy extends SolutionMethod{
 
 	private void setSolutionMethod(ConstructiveGRASP solutionMethod) {
 		this.solutionMethod = solutionMethod;
+	}
+
+	@Override
+	public MaxDiversitySolution generateBound() {
+		runSearch();
+		return (MaxDiversitySolution)getBestSolution();
 	}
 	
 	

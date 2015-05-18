@@ -2,39 +2,44 @@ package maxdiversityproblem.daa;
 
 import java.io.FileNotFoundException;
 
+
 public class Main {
 	public static void main (String[] args) {
 		MaxDiversityProblem problem = null; 
-		ConstructiveGRASP grasp = null;
+		GRASPandLocalSearch greedy = null;
 		try {
-			problem = new MaxDiversityProblem(true, "res/problems/maxdiversity/max_div_15_2.txt");
+			problem = new MaxDiversityProblem(true, "res/problems/maxdiversity/max_div_30_3.txt");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		problem.setTargetSize(4);
-		grasp = new ReverseConstructiveGRASP(problem, 1);
-		BranchAndBound branch = new BranchAndBound(problem, grasp, new DFSBranching());
+		problem.setTargetSize(2);
+		greedy = new GRASPandLocalSearch(problem, 2,ConstructiveGreedy.REVERSE);
+		BranchAndBound branch = new BranchAndBound(problem, greedy, new DFSBranching());
 		branch.runSearch();
 		System.out.println(branch.getBestSolution());
-		/*grasp.runSearch();
+		System.out.println(branch.getElapsedTime() + " " + branch.getIteration());
+
 		
-		System.out.println(grasp.getBestSolution());
-	
-		grasp = new DirectConstructiveGRASP(problem, 1);
-		grasp.runSearch();
+		problem.setTargetSize(3);
+		greedy = new GRASPandLocalSearch(problem, 2,ConstructiveGreedy.REVERSE);
+		branch = new BranchAndBound(problem, greedy, new DFSBranching());
+		branch.runSearch();
+		System.out.println(branch.getBestSolution());
+		System.out.println(branch.getElapsedTime() + " " + branch.getIteration());
 		
-		System.out.println(grasp.getBestSolution());*/
+		problem.setTargetSize(4);
+		greedy = new GRASPandLocalSearch(problem, 2,ConstructiveGreedy.REVERSE);
+		branch = new BranchAndBound(problem, greedy, new DFSBranching());
+		branch.runSearch();
+		System.out.println(branch.getBestSolution());
+		System.out.println(branch.getElapsedTime() + " " + branch.getIteration());
+		
+		problem.setTargetSize(5);
+		greedy = new GRASPandLocalSearch(problem, 2,ConstructiveGreedy.REVERSE);
+		branch = new BranchAndBound(problem, greedy, new DFSBranching());
+		branch.runSearch();
+		System.out.println(branch.getBestSolution());
+		System.out.println(branch.getElapsedTime() + " " + branch.getIteration());
 	}
 }
-
-
-
-
-/**
-* Probar el enviroment.
-* Testear el LocalSearch
-*
-*
-*
-*/

@@ -16,7 +16,6 @@ public class BranchAndBound extends SolutionMethod{
 	private ArrayList<TreeNode> tree;									// Arbol.
 	private UpperBoundingStrategy upperBoundStrategy;					// Estrategia de calculo cota superior.
 	private Double lowerBound;											// Cota inferior.
-	
 	/**
 	 * 
 	 * @param problem Problema a resolver.
@@ -39,14 +38,22 @@ public class BranchAndBound extends SolutionMethod{
 	}
 	@Override
 	public void runSearch() {
+		long time = System.currentTimeMillis();
+		int iteration = 0;
 		setBestSolution(getLowerBoundingStrategy().generateBound());
 		setLowerBound(getBestSolution().getScore());
 		MaxDiversitySolution emptySol = new MaxDiversitySolution(((MaxDiversitySolution)getBestSolution()).getSize(), ((MaxDiversityProblem)getProblem()).getTargetSize());
 		getTree().add(getUpperBoundStrategy().setUpperBound(new TreeNode(emptySol)));
 		
 		while (getTree().size() != 0) {
+			iteration += tree.size();
 			branch(getBranchingStrategy().nodeToBranch(getTree()));
 		}
+		
+		setElapsedTime(System.currentTimeMillis() - time);
+		setElapsedTimeOfBestSolution(getElapsedTime());
+		setIteration(iteration);
+		setIterationOfBestSolution(iteration);
 	}
 	/**
 	 * Ramifica el nodo pasado por parametro.
@@ -66,6 +73,7 @@ public class BranchAndBound extends SolutionMethod{
 			newNode.setIndex(nodeToAdd);
 			newNode.setK(node.getK() + 1);
 			getUpperBoundStrategy().setUpperBound(newNode);
+			
 			
 			if (newNode.getUpperBound() > getLowerBound()) {
 				getTree().add(newNode);

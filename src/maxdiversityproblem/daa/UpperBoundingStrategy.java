@@ -32,7 +32,7 @@ public class UpperBoundingStrategy {
 		z3 = calculateZ3(node);
 		
 		
-		node.setUpperBound(z1 + z2 + z3 );
+		node.setUpperBound(z1 + z2 + z3);
 		return node;
 	}
 	/**
@@ -58,7 +58,7 @@ public class UpperBoundingStrategy {
 		Arrays.sort(distanceNodes);
 		
 		for (int i = 0; i < getProblem().getTargetSize() - selected.length; i++) {
-			z2 += distanceNodes[i].distance;
+			z2 += distanceNodes[distanceNodes.length - i - 1].distance;
 		}
 		
 		return z2;
@@ -93,7 +93,7 @@ public class UpperBoundingStrategy {
 		for (int i = 0; i < dist.length; i++) {
 			acc = 0.0;
 			for (int j = 0; j < nArcs; j++) {
-				acc += dist[i][j];
+				acc += dist[i][dist[i].length - j - 1];
 			}
 			maxDist[i] = new Distance_NodePair(acc, i);
 		}
@@ -101,7 +101,7 @@ public class UpperBoundingStrategy {
 		Arrays.sort(maxDist);
 		
 		for (int i = 0; i < getProblem().getTargetSize() - selected.length; i++)
-			z3 += maxDist[i].distance;
+			z3 += maxDist[maxDist.length - i - 1].distance;
 		
 		return z3;
 	}

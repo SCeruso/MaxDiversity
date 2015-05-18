@@ -1,92 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="structure.problemsolvingmethods.daa.Solution" project="MaxKMeans" 
-    file="/MaxKMeans/src/structure/problemsolvingmethods/daa/Solution.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="169" width="166" x="328" y="205"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="structure.problemsolvingmethods.daa.Problem" project="MaxKMeans" 
-    file="/MaxKMeans/src/structure/problemsolvingmethods/daa/Problem.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="185" width="246" x="42" y="205"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="structure.problemsolvingmethods.daa.SolutionMethod" project="MaxKMeans" 
-    file="/MaxKMeans/src/structure/problemsolvingmethods/daa/SolutionMethod.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="128" width="195" x="328" y="37"/>    
+  <class id="1" language="java" name="maxdiversityproblem.daa.MaxDiversitySolution" project="MaxDiversity" 
+    file="/MaxDiversity/src/maxdiversityproblem/daa/MaxDiversitySolution.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="112" width="143" x="455" y="341"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="structure.problemsolvingmethods.daa.StopCriterion" project="MaxKMeans" 
-    file="/MaxKMeans/src/structure/problemsolvingmethods/daa/StopCriterion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="259" width="166" x="534" y="205"/>    
+  <class id="2" language="java" name="maxdiversityproblem.daa.MaxDiversityProblem" project="MaxDiversity" 
+    file="/MaxDiversity/src/maxdiversityproblem/daa/MaxDiversityProblem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="130" width="225" x="41" y="341"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="kmeansproblem.daa.KMeansProblem" project="MaxKMeans" 
-    file="/MaxKMeans/src/kmeansproblem/daa/KMeansProblem.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="241" width="251" x="42" y="504"/>    
+  <class id="3" language="java" name="structure.problemsolvingmethods.daa.Problem" project="MaxDiversity" 
+    file="/MaxDiversity/src/structure/problemsolvingmethods/daa/Problem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="76" width="167" x="41" y="207"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="kmeansproblem.daa.KMeansSolution" project="MaxKMeans" 
-    file="/MaxKMeans/src/kmeansproblem/daa/KMeansSolution.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="367" width="190" x="333" y="504"/>    
+  <class id="4" language="java" name="structure.problemsolvingmethods.daa.Solution" project="MaxDiversity" 
+    file="/MaxDiversity/src/structure/problemsolvingmethods/daa/Solution.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="76" width="167" x="455" y="207"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <association id="7">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="8" name="stopCriterion"/>      
-      <multiplicity id="9" minimum="0" maximum="1"/>    
+  <class id="5" language="java" name="structure.problemsolvingmethods.daa.SolutionMethod" project="MaxDiversity" 
+    file="/MaxDiversity/src/structure/problemsolvingmethods/daa/SolutionMethod.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="130" width="196" x="248" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="structure.problemsolvingmethods.daa.StopCriterion" project="MaxDiversity" 
+    file="/MaxDiversity/src/structure/problemsolvingmethods/daa/StopCriterion.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="94" width="167" x="248" y="207"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <generalization id="7">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="8">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="9">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="10" name="stopCriterion"/>      
+      <multiplicity id="11" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="12">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="13" name="problem"/>      
+      <multiplicity id="14" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="15">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="16" name="bestSolution"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="10">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="11" name="bestSolution"/>      
-      <multiplicity id="12" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="13">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="14" name="problem"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
